@@ -4,9 +4,8 @@
 
 package frc.robot;
 
-import java.util.TreeSet;
+import edu.wpi.first.wpilibj.RobotBase;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Do NOT add any static variables to this class, or any initialization at all. Unless you know what
@@ -22,14 +21,6 @@ public final class Main {
    * <p>If you change your main robot class, change the parameter type.
    */
   public static void main(String... args) {
-    TestBench testBench = new TestBench();
-    SmartDashboard.putBoolean("On?", true); 
-    boolean onSwitch = SmartDashboard.getBoolean("On?",false);
-
-    while (onSwitch){
-      onSwitch = SmartDashboard.getBoolean("On?",false);   //get the onswitch value every loop, if false, turn testbench off
-      testBench.runTestBench();
-    }
-
+    RobotBase.startRobot(Robot::new);
   }
 }
