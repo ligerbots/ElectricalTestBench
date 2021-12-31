@@ -1,10 +1,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.ScheduleCommand;
+import edu.wpi.first.wpilibj.RobotBase;
 
 public class Robot extends TimedRobot {
+
+    private Command m_autonomousCommand;
   
     /**
      * This function is run when the robot is first started up and should be used
@@ -12,10 +17,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotInit() {
-        TestBench testBench = new TestBench();
-        RunTestCommand runTest = new RunTestCommand(testBench);
-        SmartDashboard.putBoolean("On?", true);
-        runTest.schedule();
+
     }
   
     /**
@@ -37,10 +39,44 @@ public class Robot extends TimedRobot {
       CommandScheduler.getInstance().run();
     }
 
+  /**
+   * This function is called once each time the robot enters Disabled mode.
+   */
+  @Override
+  public void disabledInit() {
 
-  
-    @Override
-    public void disabledPeriodic() {
-      
-    }
+  }
+
+  @Override
+  public void disabledPeriodic() {
+
+  }
+
+  /**
+   * This autonomous runs the autonomous command selected by your
+   * {@link RobotContainer} class.
+   */
+  @Override
+  public void autonomousInit() {
+        SmartDashboard.putBoolean("On?", false);   
+        SmartDashboard.putNumber("Neo 1", -1);
+        SmartDashboard.putNumber("Neo 2", -1);
+        SmartDashboard.putNumber("Neo 3", -1);
+        SmartDashboard.putNumber("Neo 4", -1);
+        SmartDashboard.putNumber("Neo 5", -1);
+        SmartDashboard.putNumber("Neo 6", -1);  
+  }
+
+  /**
+   * This function is called periodically during autonomous.
+   */
+  @Override
+  public void autonomousPeriodic() {
+      if(!SmartDashboard.getBoolean("On?", false)){
+        CommandScheduler.getInstance().cancelAll();
+        TestBench testBench = new TestBench();
+        testBench.schedule();
+      }
+      CommandScheduler.getInstance().run();   
+  }
 }
