@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.RobotBase;
 public class Robot extends TimedRobot {
 
     private Command m_autonomousCommand;
+    private TestBench testBench = new TestBench();
   
     /**
      * This function is run when the robot is first started up and should be used
@@ -59,12 +60,12 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
         SmartDashboard.putBoolean("On?", false);   
-        SmartDashboard.putNumber("Neo 1", -1);
-        SmartDashboard.putNumber("Neo 2", -1);
-        SmartDashboard.putNumber("Neo 3", -1);
-        SmartDashboard.putNumber("Neo 4", -1);
-        SmartDashboard.putNumber("Neo 5", -1);
-        SmartDashboard.putNumber("Neo 6", -1);  
+        SmartDashboard.putNumber("Neo 1", 0);
+        SmartDashboard.putNumber("Neo 2", 0);
+        SmartDashboard.putNumber("Neo 3", 0);
+        SmartDashboard.putNumber("Neo 4", 0);
+        SmartDashboard.putNumber("Neo 5", 0);
+        SmartDashboard.putNumber("Neo 6", 0);  
   }
 
   /**
@@ -72,11 +73,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-      if(!SmartDashboard.getBoolean("On?", false)){
-        CommandScheduler.getInstance().cancelAll();
-        TestBench testBench = new TestBench();
+      if(!CommandScheduler.getInstance().isScheduled(testBench) && SmartDashboard.getBoolean("On?", false)){        
         testBench.schedule();
+        CommandScheduler.getInstance().run();  
       }
-      CommandScheduler.getInstance().run();   
   }
 }

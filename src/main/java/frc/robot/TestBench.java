@@ -23,12 +23,12 @@ public class TestBench extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-	SmartDashboard.putNumber("Neo 1", -1);
-        SmartDashboard.putNumber("Neo 2", -1);
-        SmartDashboard.putNumber("Neo 3", -1);
-        SmartDashboard.putNumber("Neo 4", -1);
-        SmartDashboard.putNumber("Neo 5", -1);
-        SmartDashboard.putNumber("Neo 6", -1);
+	SmartDashboard.putNumber("Neo 1", 0);
+        SmartDashboard.putNumber("Neo 2", 0);
+        SmartDashboard.putNumber("Neo 3", 0);
+        SmartDashboard.putNumber("Neo 4", 0);
+        SmartDashboard.putNumber("Neo 5", 0);
+        SmartDashboard.putNumber("Neo 6", 0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -41,12 +41,6 @@ public class TestBench extends CommandBase {
 	  neo5.setVoltage(SmartDashboard.getNumber("Neo 5", 0));
 	  neo6.setVoltage(SmartDashboard.getNumber("Neo 6", 0));
 
-	  SmartDashboard.putNumber("Actual Voltage 1", SmartDashboard.getNumber("Neo 1", -1));
-	  SmartDashboard.putNumber("Actual Voltage 2", SmartDashboard.getNumber("Neo 2", -1));
-	  SmartDashboard.putNumber("Actual Voltage 3", SmartDashboard.getNumber("Neo 3", -1));
-	  SmartDashboard.putNumber("Actual Voltage 4", SmartDashboard.getNumber("Neo 4", -1));
-	  SmartDashboard.putNumber("Actual Voltage 5", SmartDashboard.getNumber("Neo 5", -1));
-	  SmartDashboard.putNumber("Actual Voltage 6", SmartDashboard.getNumber("Neo 6", -1));
   }
 
   // Called once the command ends or is interrupted.
@@ -59,12 +53,13 @@ public class TestBench extends CommandBase {
 	neo5.setVoltage(0);
 	neo6.setVoltage(0);
 
-	SmartDashboard.putNumber("Neo 1", -1);
-	SmartDashboard.putNumber("Neo 2", -1);
-	SmartDashboard.putNumber("Neo 3", -1);
-	SmartDashboard.putNumber("Neo 4", -1);
-	SmartDashboard.putNumber("Neo 5", -1);
-	SmartDashboard.putNumber("Neo 6", -1);
+	SmartDashboard.putNumber("Neo 1", 0);
+	SmartDashboard.putNumber("Neo 2", 0);
+	SmartDashboard.putNumber("Neo 3", 0);
+	SmartDashboard.putNumber("Neo 4", 0);
+	SmartDashboard.putNumber("Neo 5", 0);
+	SmartDashboard.putNumber("Neo 6", 0);
+  
   }
 
   // Returns true when the command should end.
