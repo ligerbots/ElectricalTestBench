@@ -30,6 +30,6 @@ public class RunTestCommand extends CommandBase {
     // Returns true when the command should end.
     @Override
     public boolean isFinished() {
-      return SmartDashboard.getBoolean("On?", false);
+      return false;
     }
 }
