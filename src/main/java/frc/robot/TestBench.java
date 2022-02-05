@@ -1,40 +1,37 @@
 package frc.robot;
 
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
-
 public class TestBench {
-    
-    private CANSparkMax neo1 = new CANSparkMax(1,MotorType.kBrushless);
-    private CANSparkMax neo2 = new CANSparkMax(2, MotorType.kBrushless); //declaring the neos
-    private CANSparkMax neo3 = new CANSparkMax(3, MotorType.kBrushless);
-    private CANSparkMax neo4 = new CANSparkMax(4, MotorType.kBrushless);
-    private CANSparkMax neo5 = new CANSparkMax(5, MotorType.kBrushless);
-    private CANSparkMax neo6 = new CANSparkMax(6, MotorType.kBrushless);
+    // declaring the individual talons
+    private TalonFX talon1 = new TalonFX(1);
+    private TalonFX talon2 = new TalonFX(2); 
+    private TalonFX talon3 = new TalonFX(3);
+    private TalonFX talon4 = new TalonFX(4);
+    private TalonFX talon5 = new TalonFX(5);
+    private TalonFX talon6 = new TalonFX(6);
 
-    double neo1Volt,neo2Volt,neo3Volt,neo4Volt,neo5Volt,neo6Volt; //Voltage of the individual neos
+    double talon1Volt,talon2Volt,talon3Volt,talon4Volt,talon5Volt,talon6Volt; //Voltage of the individual talons
 
     public TestBench(){
-        SmartDashboard.putNumber("Neo 1 Volt", 0 );
-        SmartDashboard.putNumber("Neo 2 Volt", 0 );
-        SmartDashboard.putNumber("Neo 3 Volt", 0 );
-        SmartDashboard.putNumber("Neo 4 Volt", 0 );
-        SmartDashboard.putNumber("Neo 5 Volt", 0 );
-        SmartDashboard.putNumber("Neo 6 Volt", 0 );
+        SmartDashboard.putNumber("Talon 1 Volt", 0);
+        SmartDashboard.putNumber("Talon 2 Volt", 0);
+        SmartDashboard.putNumber("Talon 3 Volt", 0);
+        SmartDashboard.putNumber("Talon 4 Volt", 0);
+        SmartDashboard.putNumber("Talon 5 Volt", 0);
+        SmartDashboard.putNumber("Talon 6 Volt", 0);
     }
 
     public void runTestBench(){
-        neo1.setVoltage(SmartDashboard.getNumber("Neo 1 Volt",0));
-        neo2.setVoltage(SmartDashboard.getNumber("Neo 2 Volt",0));
-        neo3.setVoltage(SmartDashboard.getNumber("Neo 3 Volt",0));
-        neo4.setVoltage(SmartDashboard.getNumber("Neo 4 Volt",0));
-        neo5.setVoltage(SmartDashboard.getNumber("Neo 5 Volt",0));
-        neo6.setVoltage(SmartDashboard.getNumber("Neo 6 Volt",0));
+        talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 1 Volt", 0) / 12);
+        talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 2 Volt", 0) / 12);
+        talon3.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 3 Volt", 0) / 12);
+        talon4.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 4 Volt", 0) / 12);
+        talon5.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 5 Volt", 0) / 12);
+        talon6.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 6 Volt", 0) / 12);
     }
-
-    
 }
