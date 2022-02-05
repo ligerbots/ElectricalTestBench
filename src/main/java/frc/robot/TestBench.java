@@ -15,7 +15,7 @@ public class TestBench {
     private TalonFX talon5 = new TalonFX(5);
     private TalonFX talon6 = new TalonFX(6);
 
-    double talon1Volt,talon2Volt,talon3Volt,talon4Volt,talon5Volt,talon6Volt; //Voltage of the individual talons
+    
 
     public TestBench(){
         SmartDashboard.putNumber("Talon 1 Volt", 0);
@@ -27,11 +27,11 @@ public class TestBench {
     }
 
     public void runTestBench(){
-        talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 1 Volt", 0) / 12);
-        talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 2 Volt", 0) / 12);
-        talon3.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 3 Volt", 0) / 12);
-        talon4.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 4 Volt", 0) / 12);
-        talon5.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 5 Volt", 0) / 12);
-        talon6.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 6 Volt", 0) / 12);
+        talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 1 Volt", 0) / 12.0);
+        talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 2 Volt", 0) / 12.0);
+        talon3.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 3 Volt", 0) / 12.0);
+        talon4.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 4 Volt", 0) / 12.0);
+        talon5.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 5 Volt", 0) / 12.0);
+        talon6.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Talon 6 Volt", 0) / 12.0);
     }
 }
