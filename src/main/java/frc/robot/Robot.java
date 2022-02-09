@@ -13,6 +13,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         TestBench testBench = new TestBench();
+        System.out.println("RobotInit run test");
         RunTestCommand runTest = new RunTestCommand(testBench);
         SmartDashboard.putBoolean("On?", true);
         runTest.schedule();
@@ -35,6 +36,7 @@ public class Robot extends TimedRobot {
       robot's periodic block in order for anything in the Command-based framework to work.
       */ 
       CommandScheduler.getInstance().run();
+      
     }
 
 

@@ -9,16 +9,19 @@ public class RunTestCommand extends CommandBase {
 
     RunTestCommand(TestBench testBench){
         this.testBench = testBench;
+        System.out.println("testbench constructed");
     }
 
     @Override
     public void initialize() {
+      System.out.println("initialized");
     }
   
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
       testBench.runTestBench();
+      System.out.println("runTestBench");
     }
   
     // Called once the command ends or is interrupted.
