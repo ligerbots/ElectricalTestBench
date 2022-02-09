@@ -5,18 +5,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
-  
+    TestBench m_testBench;
+    RunTestCommand m_runTest;
+
     /**
      * This function is run when the robot is first started up and should be used
      * for any initialization code.
      */
     @Override
-    public void robotInit() {
-        TestBench testBench = new TestBench();
-        System.out.println("RobotInit run test");
-        RunTestCommand runTest = new RunTestCommand(testBench);
-        SmartDashboard.putBoolean("On?", true);
-        runTest.schedule();
+    public void robotInit() { 
+      m_testBench = new TestBench(); 
+      m_runTest = new RunTestCommand(m_testBench);
+      SmartDashboard.putBoolean("On?", true);
     }
   
     /**
@@ -39,7 +39,10 @@ public class Robot extends TimedRobot {
       
     }
 
-
+    @Override
+    public void teleopInit() {
+      m_runTest.schedule();
+    }
   
     @Override
     public void disabledPeriodic() {
