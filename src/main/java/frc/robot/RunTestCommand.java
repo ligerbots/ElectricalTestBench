@@ -27,8 +27,8 @@ public class RunTestCommand extends CommandBase {
     @Override
     public void end(boolean interrupted) {
     }
-
-    // Returns true when the command should end.
+  
+    //command should never end while robot is enabled
     @Override
     public boolean isFinished() {
         return false;
