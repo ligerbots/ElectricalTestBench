@@ -9,6 +9,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class TestBench {
+    // declaring the Neos
+    private CANSparkMax neo1 = new CANSparkMax(1, MotorType.kBrushless);
+    private CANSparkMax neo2 = new CANSparkMax(2, MotorType.kBrushless); 
+    private CANSparkMax neo3 = new CANSparkMax(3, MotorType.kBrushless);
+    private CANSparkMax neo4 = new CANSparkMax(4, MotorType.kBrushless);
+    private CANSparkMax neo5 = new CANSparkMax(5, MotorType.kBrushless);
+    private CANSparkMax neo6 = new CANSparkMax(6, MotorType.kBrushless);
+ 
     // declaring the Falcons
     private TalonFX talon1 = new TalonFX(1);
     private TalonFX talon2 = new TalonFX(2); 
@@ -17,15 +25,8 @@ public class TestBench {
     private TalonFX talon5 = new TalonFX(5);
     private TalonFX talon6 = new TalonFX(6);
 
-    // declaring the Neos
-    private CANSparkMax neo1 = new CANSparkMax(1, MotorType.kBrushless);
-    private CANSparkMax neo2 = new CANSparkMax(2, MotorType.kBrushless); 
-    private CANSparkMax neo3 = new CANSparkMax(3, MotorType.kBrushless);
-    private CANSparkMax neo4 = new CANSparkMax(4, MotorType.kBrushless);
-    private CANSparkMax neo5 = new CANSparkMax(5, MotorType.kBrushless);
-    private CANSparkMax neo6 = new CANSparkMax(6, MotorType.kBrushless);
-
     public TestBench(){
+        
         SmartDashboard.putNumber("NEO 1 Volt", 0);
         SmartDashboard.putNumber("NEO 2 Volt", 0);
         SmartDashboard.putNumber("NEO 3 Volt", 0);
