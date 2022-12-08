@@ -16,6 +16,8 @@ public class TestBench {
     private CANSparkMax neo4 = new CANSparkMax(4, MotorType.kBrushless);
     private CANSparkMax neo5 = new CANSparkMax(5, MotorType.kBrushless);
     private CANSparkMax neo6 = new CANSparkMax(6, MotorType.kBrushless);
+    private CANSparkMax neo7 = new CANSparkMax(7, MotorType.kBrushless);
+    private CANSparkMax neo8 = new CANSparkMax(8, MotorType.kBrushless);
  
     // declaring the Falcons
     private TalonFX talon1 = new TalonFX(1);
@@ -33,6 +35,8 @@ public class TestBench {
         SmartDashboard.putNumber("NEO 4 Volt", 0);
         SmartDashboard.putNumber("NEO 5 Volt", 0);
         SmartDashboard.putNumber("NEO 6 Volt", 0);
+        SmartDashboard.putNumber("NEO 7 Volt", 0);
+        SmartDashboard.putNumber("NEO 8 Volt", 0);
 
         SmartDashboard.putNumber("Falcon 1 Volt", 0);
         SmartDashboard.putNumber("Falcon 2 Volt", 0);
@@ -49,6 +53,8 @@ public class TestBench {
         neo4.setVoltage(SmartDashboard.getNumber("NEO 4 Volt", 0));
         neo5.setVoltage(SmartDashboard.getNumber("NEO 5 Volt", 0));
         neo6.setVoltage(SmartDashboard.getNumber("NEO 6 Volt", 0));
+        neo7.setVoltage(SmartDashboard.getNumber("NEO 7 Volt", 0));
+        neo8.setVoltage(SmartDashboard.getNumber("NEO 8 Volt", 0));
 
         talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 1 Volt", 0) / 12.0);
         talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 2 Volt", 0) / 12.0);
