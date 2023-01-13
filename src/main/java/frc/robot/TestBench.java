@@ -38,6 +38,15 @@ public class TestBench {
         SmartDashboard.putNumber("NEO 7 Volt", 0);
         SmartDashboard.putNumber("NEO 8 Volt", 0);
 
+        SmartDashboard.putNumber("NEO 1 Faults", 0);
+        SmartDashboard.putNumber("NEO 2 Faults", 0);
+        SmartDashboard.putNumber("NEO 3 Faults", 0);
+        SmartDashboard.putNumber("NEO 4 Faults", 0);
+        SmartDashboard.putNumber("NEO 5 Faults", 0);
+        SmartDashboard.putNumber("NEO 6 Faults", 0);
+        SmartDashboard.putNumber("NEO 7 Faults", 0);
+        SmartDashboard.putNumber("NEO 8 Faults", 0);
+
         SmartDashboard.putNumber("Falcon 1 Volt", 0);
         SmartDashboard.putNumber("Falcon 2 Volt", 0);
         SmartDashboard.putNumber("Falcon 3 Volt", 0);
@@ -55,6 +64,15 @@ public class TestBench {
         neo6.setVoltage(SmartDashboard.getNumber("NEO 6 Volt", 0));
         neo7.setVoltage(SmartDashboard.getNumber("NEO 7 Volt", 0));
         neo8.setVoltage(SmartDashboard.getNumber("NEO 8 Volt", 0));
+
+        SmartDashboard.putNumber("NEO 1 Faults", neo1.getFaults());
+        SmartDashboard.putNumber("NEO 2 Faults", neo2.getFaults());
+        SmartDashboard.putNumber("NEO 3 Faults", neo3.getFaults());
+        SmartDashboard.putNumber("NEO 4 Faults", neo4.getFaults());
+        SmartDashboard.putNumber("NEO 5 Faults", neo5.getFaults());
+        SmartDashboard.putNumber("NEO 6 Faults", neo6.getFaults());
+        SmartDashboard.putNumber("NEO 7 Faults", neo7.getFaults());
+        SmartDashboard.putNumber("NEO 8 Faults", neo8.getFaults());
 
         talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 1 Volt", 0) / 12.0);
         talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 2 Volt", 0) / 12.0);
