@@ -1,6 +1,7 @@
 package frc.robot;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
@@ -14,7 +15,8 @@ public class TestBench {
 
     // declaring the Neos
     private CANSparkMax[] neos = new CANSparkMax[ NUM_NEOS ];
- 
+    private RelativeEncoder[] neoEncoders = new RelativeEncoder[ NUM_NEOS ];
+
     // declaring the Falcons
     private TalonFX[] falcons = new TalonFX[ NUM_FALCONS ];
 
@@ -23,9 +25,10 @@ public class TestBench {
             // CAN IDs should start at 1
             int canId = iN + 1;
             neos[iN] = new CANSparkMax(canId, MotorType.kBrushless);
+            neoEncoders[iN] = neos[iN].getEncoder();
             SmartDashboard.putNumber("NEO " + canId + " Volt", 0);
             SmartDashboard.putNumber("NEO " + canId + " Faults", 0);
-            // SmartDashboard.putNumber("NEO " + canId + " RPM", 0);
+            SmartDashboard.putNumber("NEO " + canId + " RPM", 0);
         }
 
         for (int iF=0; iF < NUM_FALCONS; iF++) {
@@ -43,7 +46,7 @@ public class TestBench {
             int canId = iN + 1;
             neos[iN].setVoltage(SmartDashboard.getNumber("NEO " + canId + " Volt", 0));
             SmartDashboard.putNumber("NEO " + canId + " Faults", neos[iN].getFaults());
-            // SmartDashboard.putNumber("NEO " + canId + " RPM", 0);
+            SmartDashboard.putNumber("NEO " + canId + " RPM", neoEncoders[iN].getVelocity());
         }
 
         for (int iF=0; iF < NUM_FALCONS; iF++) {
