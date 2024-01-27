@@ -20,7 +20,7 @@ public class RunTestCommand extends Command {
     @Override
     public void execute() {
         testBench.runTestBench();
-        System.out.println("runTestBench");
+        // System.out.println("runTestBench");
     }
 
     // Called once the command ends or is interrupted.
