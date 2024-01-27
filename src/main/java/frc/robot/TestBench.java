@@ -1,9 +1,9 @@
 package frc.robot;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+// import com.ctre.phoenix.motorcontrol.ControlMode;
+// import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -20,12 +20,12 @@ public class TestBench {
     private CANSparkMax neo8 = new CANSparkMax(8, MotorType.kBrushless);
  
     // declaring the Falcons
-    private TalonFX talon1 = new TalonFX(1);
-    private TalonFX talon2 = new TalonFX(2); 
-    private TalonFX talon3 = new TalonFX(3);
-    private TalonFX talon4 = new TalonFX(4);
-    private TalonFX talon5 = new TalonFX(5);
-    private TalonFX talon6 = new TalonFX(6);
+    // private TalonFX talon1 = new TalonFX(1);
+    // private TalonFX talon2 = new TalonFX(2); 
+    // private TalonFX talon3 = new TalonFX(3);
+    // private TalonFX talon4 = new TalonFX(4);
+    // private TalonFX talon5 = new TalonFX(5);
+    // private TalonFX talon6 = new TalonFX(6);
 
     public TestBench(){
         
@@ -74,11 +74,11 @@ public class TestBench {
         SmartDashboard.putNumber("NEO 7 Faults", neo7.getFaults());
         SmartDashboard.putNumber("NEO 8 Faults", neo8.getFaults());
 
-        talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 1 Volt", 0) / 12.0);
-        talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 2 Volt", 0) / 12.0);
-        talon3.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 3 Volt", 0) / 12.0);
-        talon4.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 4 Volt", 0) / 12.0);
-        talon5.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 5 Volt", 0) / 12.0);
-        talon6.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 6 Volt", 0) / 12.0);
+        // talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 1 Volt", 0) / 12.0);
+        // talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 2 Volt", 0) / 12.0);
+        // talon3.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 3 Volt", 0) / 12.0);
+        // talon4.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 4 Volt", 0) / 12.0);
+        // talon5.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 5 Volt", 0) / 12.0);
+        // talon6.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 6 Volt", 0) / 12.0);
     }
 }
