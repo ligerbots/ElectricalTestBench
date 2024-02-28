@@ -1,8 +1,8 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
-public class RunTestCommand extends CommandBase {
+public class RunTestCommand extends Command {
 
     TestBench testBench;
 
@@ -20,7 +20,7 @@ public class RunTestCommand extends CommandBase {
     @Override
     public void execute() {
         testBench.runTestBench();
-        System.out.println("runTestBench");
+        // System.out.println("runTestBench");
     }
 
     // Called once the command ends or is interrupted.

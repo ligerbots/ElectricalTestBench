@@ -1,9 +1,8 @@
 package frc.robot;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -74,11 +73,11 @@ public class TestBench {
         SmartDashboard.putNumber("NEO 7 Faults", neo7.getFaults());
         SmartDashboard.putNumber("NEO 8 Faults", neo8.getFaults());
 
-        talon1.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 1 Volt", 0) / 12.0);
-        talon2.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 2 Volt", 0) / 12.0);
-        talon3.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 3 Volt", 0) / 12.0);
-        talon4.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 4 Volt", 0) / 12.0);
-        talon5.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 5 Volt", 0) / 12.0);
-        talon6.set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon 6 Volt", 0) / 12.0);
+        talon1.set(SmartDashboard.getNumber("Falcon 1 Volt", 0) / 12.0);
+        talon2.set(SmartDashboard.getNumber("Falcon 2 Volt", 0) / 12.0);
+        talon3.set(SmartDashboard.getNumber("Falcon 3 Volt", 0) / 12.0);
+        talon4.set(SmartDashboard.getNumber("Falcon 4 Volt", 0) / 12.0);
+        talon5.set(SmartDashboard.getNumber("Falcon 5 Volt", 0) / 12.0);
+        talon6.set(SmartDashboard.getNumber("Falcon 6 Volt", 0) / 12.0);
     }
 }
