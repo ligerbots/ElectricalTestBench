@@ -3,10 +3,15 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.SetPivotAngle;
+import frc.robot.subsystems.ShooterPivot;
 
 public class Robot extends TimedRobot {
     TestBench m_testBench;
     RunTestCommand m_runTest;
+    CommandXboxController m_xbox;
+    private final ShooterPivot m_shooterPivot = new ShooterPivot();
 
     /**
      * This function is run when the robot is first started up and should be used
@@ -16,9 +21,12 @@ public class Robot extends TimedRobot {
     public void robotInit() { 
       m_testBench = new TestBench(); 
       m_runTest = new RunTestCommand(m_testBench);
-      SmartDashboard.putBoolean("On?", true);
+
+      m_xbox = new CommandXboxController(0);
+      m_xbox.a().onTrue(new SetPivotAngle(m_shooterPivot,
+            () -> Math.toRadians(SmartDashboard.getNumber("shooterPivot/testAngle", 0))).withTimeout(5.0));
     }
-  
+
     /**
      * This function is called every robot packet, no matter the mode. Use this for
      * items like diagnostics that you want ran during disabled, autonomous,
@@ -29,23 +37,25 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
-      /* Runs the Scheduler. This is responsible for polling buttons, adding newly-scheduled commands, 
-      running already-scheduled commands, removing finished or interrupted commands, 
-      and running subsystem periodic() methods. 
-      This must be called from the
-      robot's periodic block in order for anything in the Command-based framework to work.
-      */ 
-      CommandScheduler.getInstance().run();
-      
+        /*
+         * Runs the Scheduler. This is responsible for polling buttons, adding
+         * newly-scheduled commands,
+         * running already-scheduled commands, removing finished or interrupted
+         * commands,
+         * and running subsystem periodic() methods.
+         * This must be called from the
+         * robot's periodic block in order for anything in the Command-based framework
+         * to work.
+         */
+        CommandScheduler.getInstance().run();
     }
 
     @Override
     public void teleopInit() {
-      m_runTest.schedule();
+        // m_runTest.schedule();
     }
-  
+
     @Override
     public void disabledPeriodic() {
-      
     }
 }
