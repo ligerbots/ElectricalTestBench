@@ -2,9 +2,8 @@ package frc.robot;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -52,7 +51,7 @@ public class TestBench {
         for (int iF=0; iF < NUM_FALCONS; iF++) {
             // CAN IDs should start at 1
             int canId = iF + 1;
-            falcons[iF].set(ControlMode.PercentOutput, SmartDashboard.getNumber("Falcon " + canId + " Volt", 0) / 12.0);
+            falcons[iF].set(SmartDashboard.getNumber("Falcon " + canId + " Volt", 0) / 12.0);
             // SmartDashboard.putNumber("Falcon " + canId + " RPM", 0);
         }
     }
