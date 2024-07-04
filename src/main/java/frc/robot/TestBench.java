@@ -4,6 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
@@ -17,7 +18,9 @@ public class TestBench {
     private CANSparkMax neo6 = new CANSparkMax(6, MotorType.kBrushless);
     private CANSparkMax neo7 = new CANSparkMax(7, MotorType.kBrushless);
     private CANSparkMax neo8 = new CANSparkMax(8, MotorType.kBrushless);
- 
+   
+    private Servo servo1 = new Servo(0);
+
     // declaring the Falcons
     private TalonFX talon1 = new TalonFX(1);
     private TalonFX talon2 = new TalonFX(2); 
@@ -28,6 +31,7 @@ public class TestBench {
 
     public TestBench(){
         
+
         SmartDashboard.putNumber("NEO 1 Volt", 0);
         SmartDashboard.putNumber("NEO 2 Volt", 0);
         SmartDashboard.putNumber("NEO 3 Volt", 0);
@@ -36,6 +40,8 @@ public class TestBench {
         SmartDashboard.putNumber("NEO 6 Volt", 0);
         SmartDashboard.putNumber("NEO 7 Volt", 0);
         SmartDashboard.putNumber("NEO 8 Volt", 0);
+
+        SmartDashboard.putNumber("Servo 1 Position", 0);
 
         SmartDashboard.putNumber("NEO 1 Faults", 0);
         SmartDashboard.putNumber("NEO 2 Faults", 0);
@@ -63,6 +69,8 @@ public class TestBench {
         neo6.setVoltage(SmartDashboard.getNumber("NEO 6 Volt", 0));
         neo7.setVoltage(SmartDashboard.getNumber("NEO 7 Volt", 0));
         neo8.setVoltage(SmartDashboard.getNumber("NEO 8 Volt", 0));
+
+        servo1.set(SmartDashboard.getNumber("Servo 1 Position", 0));
 
         SmartDashboard.putNumber("NEO 1 Faults", neo1.getFaults());
         SmartDashboard.putNumber("NEO 2 Faults", neo2.getFaults());
