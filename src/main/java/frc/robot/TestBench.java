@@ -79,5 +79,23 @@ public class TestBench {
         talon4.set(SmartDashboard.getNumber("Falcon 4 Volt", 0) / 12.0);
         talon5.set(SmartDashboard.getNumber("Falcon 5 Volt", 0) / 12.0);
         talon6.set(SmartDashboard.getNumber("Falcon 6 Volt", 0) / 12.0);
+
+
+        // Get Motor RPMs
+        SmartDashboard.putNumber("NEO 1 RPM", neo1.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 2 RPM", neo2.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 3 RPM", neo3.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 4 RPM", neo4.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 5 RPM", neo5.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 6 RPM", neo6.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 7 RPM", neo7.getEncoder().getVelocity());
+        SmartDashboard.putNumber("NEO 8 RPM", neo8.getEncoder().getVelocity());
+
+        SmartDashboard.putNumber("Falcon 1 RPM", talon1.getVelocity().getValueAsDouble());
+        SmartDashboard.putNumber("Falcon 2 RPM", talon2.getVelocity().getValueAsDouble());
+        SmartDashboard.putNumber("Falcon 3 RPM", talon3.getVelocity().getValueAsDouble());
+        SmartDashboard.putNumber("Falcon 4 RPM", talon4.getVelocity().getValueAsDouble());
+        SmartDashboard.putNumber("Falcon 5 RPM", talon5.getVelocity().getValueAsDouble());
+        SmartDashboard.putNumber("Falcon 6 RPM", talon6.getVelocity().getValueAsDouble());
     }
 }
